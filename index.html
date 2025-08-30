@@ -14,15 +14,23 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
-<body> 
+<div> 
     <br> <br> <br> <br><br><br><br><br>
                  <img src="gallery/IMG-20250828-WA0011 (1).jpg" width="350px">
            <br><br>
-                 <button class="btn btn-danger"><a href="content.html">Enter website</a></button>
-   <br><br>
-              <button class="btn btn-dark"><a href="https://qr.me-qr.com/link-list/o5V6wNPO/show">Visit my V-CARD</a></button>
-<br><br>
-       <style>
+           <form id="loginForm">
+             <div class="input-group">
+                <i class="fa-solid fa-user"></i> <input type="text" id="username" name="username" required>
+            </div>
+            <br>
+             <div class="input-group">
+                <i class="fa-solid fa-lock"></i>  <input type="password" id="password" name="password" required>
+            </div>
+            <br>
+            <button  class=" btn btn-danger" id="btn" type="submit">Enter</button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+        <style>
       /* style.css */
        body{
         background-color: darkgray;
@@ -32,19 +40,47 @@
 width: 250px;
 border-radius: 5cm;
 margin-left: 1.5cm;
-    }
-    a{
-        text-decoration: solid;
-        color: yellowgreen;
-    }
-  button{
-    margin-left: 0.5cm;
+      }
+      .input-group{
+         margin-left: 2cm;
+         height: 30px;
+      }
+          #btn:hover{
+            color: goldenrod;
+        }
+        #loginForm{
+            border-radius: 4cm;
+            text-align: center;
+            margin-top: 1cm;
+            font: 1em sans-serif;
+            gap: 2cm;
+          }
+  #btn{
+    height: 50px;
+    width: 200px;
+    margin-left: 1cm;
  }
-      .btn{
-        margin-left: 1cm;
-                width: 300px;
-                 border-radius: 4cm;
+      </style>
+      <script> document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const usernameInput = document.getElementById('username').value;
+    const passwordInput = document.getElementById('password').value;
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Define your correct username and password
+    const correctUsername = 'BCA(2nd y)HS-CIT';
+    const correctPassword = 'z11pak05ee01xLd';
+    const targetWebsite = "content.html"; // Replace with your desired website URL
+
+    if (usernameInput === correctUsername && passwordInput === correctPassword) {
+        errorMessage.textContent = ''; // Clear any previous error message
+        window.location.href = targetWebsite; // Redirect to the target website
+    } else {
+        errorMessage.textContent = 'unable to enter website,please  fill details carefully.';
     }
-     </style>
+});
+</script>
+
  </body>
 </html>

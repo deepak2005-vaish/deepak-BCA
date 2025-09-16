@@ -10,16 +10,96 @@
 </head>
 
 <body>
-    <div class="box">
-        <img src="gallery/IMG-20250828-WA0011 (1).jpg">
-        <button class="btn btn-danger"><a href="content.html">ENTER Website</a></button>
-        <br><br>
-        <button class="btn btn-dark"> <a href="https://qr.me-qr.com/link-list/o5V6wNPO/show">Visit my
-                V-CARD</a></button>
+    <marquee>
+        <h5>ENTER USERNAME AND PASSWORD</h5>
+    </marquee>
+    <br>
+    <img src="gallery/IMG-20250828-WA0011 (1).jpg">
+    <br><br>
+    <div class="login-container">
+        <form id="loginForm">
+            <h1>LOGIN</h1>
+            <label for="user-id"><b>USER-ID</b></label>
+            <input type="text" placeholder="enter user-id " id="username" name="username" required>
+            <br>
+            <label for="password"><b>PASSWORD</b></label>
+            <input type="text" placeholder="enter password " id="password" name="password" required>
+
+            <br><br>
+            <button id="btn" type="submit">SUBMIT</button>
+            <p id="errorMessage" class="error-message"></p>
+        </form>
+    </div>
+
     </div>
     <style>
+        h5 {
+            margin-top: 2cm;
+        }
+
+
+        .login-container {
+            border-radius: 2cm;
+            height: 250px;
+            width: 250px;
+            margin-left: 2cm;
+            background-color: darkgreen;
+        }
+
+
+        #btn {
+            color: yellow;
+            background-color: darkgreen;
+            font-size: large;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 2cm;
+        }
+
+        #username {
+            color: yellowgreen;
+            margin-left: 1cm;
+        }
+
+        .lap {
+            height: 25px;
+            width: 25px;
+        }
+
+        #password {
+            color: peru;
+            margin-left: 1cm;
+
+        }
+
+        b {
+            color: red;
+            margin-left: 2cm;
+        }
+
+        h1 {
+            color: greenyellow;
+            margin-left: 2cm;
+        }
+
+        #btn:hover {
+            color: goldenrod;
+        }
+
+
+
+
+        .input-group {
+            gap: 0.6cm;
+        }
+
+        h5 {
+            color: blue;
+            background-color: red;
+        }
+
+
         body {
-            background-color: blue;
+            background-color: grey;
         }
 
         img {
@@ -29,34 +109,30 @@
             border-radius: 5cm;
             margin-top: 5cm;
         }
-
-        h3 {
-            margin-top: 5cms;
-        }
-
-        h2 {
-            margin-left: 2cm;
-            color: chartreuse;
-            text-shadow: 3cm;
-            background-color: crimson;
-            width: 160px;
-        }
-
-        h2:hover {
-            background-color: khaki;
-        }
-
-        a {
-            text-decoration: none;
-            color: greenyellow;
-        }
-
-        .btn {
-            margin-left: 1.5cm;
-            width: 250px;
-            border-radius: 4cm;
-        }
     </style>
 </body>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const usernameInput = document.getElementById('username').value;
+        const passwordInput = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Define your correct username and password
+        const correctUsername = 'deepak11';
+        const correctPassword = 'BCA(2nd y)HS-CIT';
+        const targetWebsite = "content.html"; // Replace with your desired website URL
+
+        if (usernameInput === correctUsername && passwordInput === correctPassword) {
+            errorMessage.textContent = ''; // Clear any previous error message
+            window.location.href = targetWebsite; // Redirect to the target website
+        } else {
+            errorMessage.textContent = 'Incorrect username or password.';
+        }
+    });
+</script>
+
+</script>
 
 </html>

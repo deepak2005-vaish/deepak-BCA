@@ -1,0 +1,94 @@
+<marquee>
+    <h5>ENTER USERNAME AND PASSWORD</h5>
+</marquee>
+<div class="login-container">
+    <form id="loginForm">
+        <div class="input-group">
+            <i class="fa-solid fa-user"></i> <input type="text" id="username" name="username" required>
+        </div>
+        <div class="input-group">
+            <i class="fa-solid fa-lock"><input type="password" id="password" name="password" required></i>
+        </div>
+        <br>
+        <button id="btn" type="submit"></button>
+        <p id="errorMessage" class="error-message"></p>
+    </form>
+</div>
+<script src="script.js"></script>
+<style>
+    body {
+        background-color: teal;
+    }
+
+    .input-group {
+        text-align: center;
+        background-color: brown;
+        gap: 2cm;
+        font-family: serif;
+        flex-direction: column-reverse;
+        color: olivedrab;
+        background-color: navajowhite;
+    }
+
+    #btn {
+        color: yellow;
+        background-color: darkgreen;
+        font-size: large;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    #btn:hover {
+        color: goldenrod;
+    }
+
+    #loginForm {
+        border-radius: 10cm;
+        text-align: center;
+        margin-top: 3cm;
+        font: 1em sans-serif;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 4cm;
+        background-color: darkviolet;
+    }
+
+    .login-containe {
+        border: 10cm;
+        background-color: lime;
+    }
+
+    h5 {
+        color: blue;
+        background-color: red;
+    }
+
+    img {
+        height: 50px;
+        width: 150px;
+    }
+</style>
+</body>
+
+</html>
+<script> document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        const usernameInput = document.getElementById('username').value;
+        const passwordInput = document.getElementById('password').value;
+        const errorMessage = document.getElementById('errorMessage');
+
+        // Define your correct username and password
+        const correctUsername = 'deepak11';
+        const correctPassword = 'BCA(2nd y)HS-CIT';
+        const targetWebsite = "content.html"; // Replace with your desired website URL
+
+        if (usernameInput === correctUsername && passwordInput === correctPassword) {
+            errorMessage.textContent = ''; // Clear any previous error message
+            window.location.href = targetWebsite; // Redirect to the target website
+        } else {
+            errorMessage.textContent = 'Incorrect username or password.';
+        }
+    });
+</script>
